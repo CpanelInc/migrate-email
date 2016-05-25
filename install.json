@@ -1,0 +1,9 @@
+{
+	"icon": "email.png",
+	"group_id": "email",
+	"order": 10000,
+	"name": "Migrate Email",
+	"type": "link",
+	"id": "migrate_email",
+	"uri": "migrate_email/index.tt"
+}
