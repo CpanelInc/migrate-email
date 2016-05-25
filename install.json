@@ -1,5 +1,5 @@
 {
-	"icon": "email.png",
+	"icon": "icons/email_import.png",
 	"group_id": "email",
 	"order": 10000,
 	"name": "Migrate Email",
