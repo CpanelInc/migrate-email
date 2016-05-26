@@ -5,6 +5,6 @@
 	"name": "Migrate Email",
 	"type": "link",
 	"id": "migrate_email",
-	"uri": "migrate_email/index.tt",
+	"uri": "migrate_email/index.html",
 	"featuremanager": 1
 }
