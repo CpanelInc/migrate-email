@@ -8,11 +8,11 @@ use warnings;
 
 use lib '/usr/local/migrate-email';
 
-use MigrateMail ();
+use MigrateMail    ();
 
-my ( $locpass, $rempass ) = @ARGV;
 
-MigrateMail::setupmigrateuser( 'remoteuser' => 'cpanel.email.migrate@gmail.com', 'remotepass' => $rempass, 'remoteserver' => 'imap.gmail.com', 'localuser' => 'cemtest@cem.test', 'localpass' => $locpass, 'localserver' => '127.0.0.1' );
+MigrateMail::setupmigrateuser( 'remoteuser' => 'cpanel.email.migrate@gmail.com', 'remotepass' => 't32t1234', 'remoteserver' => 'imap.gmail.com', 'localuser' => 'cemtest@cem.test', 'localpass' => 't32t1234', 'localserver' => '127.0.0.1');
 
 MigrateMail::domigrateuser();
 
+;
