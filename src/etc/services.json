@@ -1,0 +1,38 @@
+{
+        "hotmail": {
+            "server": "imap-mail.outlook.com",
+            "port": 143
+        },
+        "gmail": {
+            "server": "imap.gmail.com",
+            "port": 993
+        },
+        "office365": {
+            "server": "outlook.office365.com",
+            "port": 993
+        },
+        "yahoo": {
+            "server": "imap.mail.yahoo.com",
+            "port": 993
+        },
+        "aol": {
+            "server": "imap.aol.com",
+            "port": 143
+        },
+        "aim": {
+            "server": "imap.aim.com",
+            "port": 143
+        },
+        "icloud": {
+            "server": "imap.mail.me.com",
+            "port": 993
+        },
+        "pobox": {
+            "server": "mail.pobox.com",
+            "port": 993
+        },
+        "mailru": {
+            "server": "imap.mail.ru",
+            "port": 993
+        }
+}
