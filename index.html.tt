@@ -6,6 +6,7 @@
 [%
   SET CPANEL.CPVAR.dprefix = "../"
   email_address = execute("Email", "list_pops")
+  services = execute("MigrateMail", "services")
 -%]
 
     <div class="container">
@@ -26,12 +27,9 @@
             <input name="remotePassword" type="password" id="remotePassword" class="form-control" placeholder="Password" required>
             <select name="mailService" class="form-control">
               <option>Select a mail service</option>
-              <option>Gmail</option>
-              <!-- <option>Hotmail</option>
-              <option>Outlook</option>
-              <option>Yahoo Mail</option>
-              <option>Manual</option>
-             -->
+              [% FOREACH service IN services.data %]
+              <option>[% service.name %]</option>
+              [% END %]
             </select>
           </div>
 
