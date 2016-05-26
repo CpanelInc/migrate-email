@@ -1,0 +1,29 @@
+[% WRAPPER '_assets/master.html.tt'
+  app_key = 'migrate_email'
+  page_title = 'Migrate Email'
+-%]
+
+[%
+  SET CPANEL.CPVAR.dprefix = "../"
+  convergence = execute("MigrateMail", "domigrateuser", {'remoteEmail' => $remoteEmail, 'remotePassword' => $remotePassword, 'mailService' => $mailService, 'localEmail' => $localEmail, 'localPassword' => $localPassword, 'newEmail' => $newEmail, 'newPassword' => $newPassword})
+
+  IF convergence.status
+-%]
+
+<div class="alert alert-success">
+  <strong>Success!</strong> This email account was migrated to cPanel.
+</div>
+
+<a href="index.html.tt" class="btn" role="button">Migrate another account</a>
+
+[% ELSE %]
+
+<div class="alert alert-warning">
+  <strong>Oops!</strong> Your email did not migrate successfully. Please check your username and password.
+</div>
+
+<a href="index.html.tt" class="btn" role="button">Try again</a>
+
+[% END %]
+
+[% END %]
