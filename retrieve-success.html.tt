@@ -14,6 +14,8 @@
   <strong>Success!</strong> This email account was migrated to cPanel.
 </div>
 
+<img src="src/rainbow-unicorn-right.gif">
+
 <a href="index.html.tt" class="btn" role="button">Migrate another account</a>
 
 [% ELSE %]
