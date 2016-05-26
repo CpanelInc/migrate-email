@@ -15,7 +15,7 @@
       </p>
 
       <div class="section"
-        <form action="retrieve-success.html" class="form-signin form-group-lg">
+        <form action="retrieve-success.html.tt" class="form-signin form-group-lg">
           <div class="form-group">
 
             <h3 class="form-signin-heading">Sign into the email account you want to migrate:</h3>

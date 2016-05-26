@@ -11,14 +11,18 @@
 -%]
 
 <div class="alert alert-success">
-  <strong>Success!</strong> Your email messages were migrated.
+  <strong>Success!</strong> This email account was migrated to cPanel.
 </div>
+
+<a href="index.html.tt" class="btn" role="button">Migrate another account</a>
 
 [% ELSE %]
 
 <div class="alert alert-warning">
   <strong>Oops!</strong> Your email did not migrate successfully. Please check your username and password.
 </div>
+
+<a href="index.html.tt" class="btn" role="button">Try again</a>
 
 [% END %]
 
