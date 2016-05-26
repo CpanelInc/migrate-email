@@ -1,5 +1,8 @@
 #!/usr/bin/perl
 
+# copyright 2016 cPanel, Inc.
+# Licensed under the terms of the Apache 2.0 license
+
 use strict;
 use warnings;
 
