@@ -5,7 +5,7 @@
 
 [%
   SET CPANEL.CPVAR.dprefix = "../"
-  convergence = execute("MigrateMail", "domigrateuser", {'remoteEmail' => $remoteEmail, 'remotePassword' => $remotePassword, 'mailService' => $mailService, 'localEmail' => $localEmail, 'localPassword' => $localPassword, 'newEmail' => $newEmail, 'newPassword' => $newPassword});
+  convergence = execute("MigrateMail", "domigrateuser", {'remoteEmail' => RAW_FORM.remoteEmail, 'remotePassword' => RAW_FORM.remotePassword, 'mailService' => RAW_FORM.mailService, 'localEmail' => RAW_FORM.localEmail, 'localPassword' => RAW_FORM.localPassword, 'newEmail' => RAW_FORM.newEmail, 'newPassword' => RAW_FORM.newPassword});
 
   IF convergence.status;
 -%]
