@@ -1,4 +1,4 @@
-package MigrateMail;
+package Cpanel::API::MigrateMail;
 
 # copyright 2017 cPanel, Inc
 # Licensed under the terms of the Apache 2.0 license
@@ -45,5 +45,21 @@ sub domigrateuser {
     Cpanel::SafeRun::Simple::saferun( $imapsync, @mailoptions, @defaultoptions );
 
 }
-1;
 
+sub services{
+    my( $args, $result) = @_;
+
+    my @results;
+    $result->data(
+        [
+            {
+                'name' => 'Gmail',
+                'server' => 'imap.gmail.com'
+            }
+        ]
+    );
+
+    return 1;
+}
+
+1;
