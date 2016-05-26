@@ -17,6 +17,25 @@ sub domigrateuser {
 
     my ( $remoteuser, $remotepass, $localuser, $localpass ) = $args->get( 'remoteEmail', 'remotePassword', 'localEmail', 'localPassword' );
 
+    if( ! $remoteuser || $remoteuser !~ m/\@/ ){
+        $result->error( 'Remote Username must be an email account');
+        return;
+    }
+    if( !$remotepass ){
+        $result->error( 'Remote Password was not provided' );
+        return;
+    }
+
+    if( ! $localuser || $localuser !~ m/\@/ ){
+        $result->error( 'Local user must be an email account' );
+        return;
+    }
+
+    if( !$localpass ){
+        $result->error( 'Local Password was not provided' );
+        return;
+    }
+
     my $remoteserver = 'imap.gmail.com';
     my $localserver  = 'localhost';
 
@@ -31,8 +50,13 @@ sub domigrateuser {
 
     my @largemailboxopts = ('--split1 100 --split2 100');
 
-    Cpanel::SafeRun::Simple::saferun( $imapsync, @mailoptions, @defaultoptions );
-
+    my $result = Cpanel::SafeRun::Simple::saferun( $imapsync, @mailoptions, @defaultoptions );
+    
+    if( $result !~ m/detected 0 errors/im ){
+        $result->error( 'Failed to transfer email');
+        return;
+    }
+    return 1;
 }
 
 sub services {
