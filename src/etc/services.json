@@ -17,11 +17,11 @@
         },
         "aol": {
             "server": "imap.aol.com",
-            "port": 143
+            "port": 993
         },
         "aim": {
-            "server": "imap.aim.com",
-            "port": 143
+            "server": "imap.aol.com",
+            "port": 993
         },
         "icloud": {
             "server": "imap.mail.me.com",
