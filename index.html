@@ -41,13 +41,18 @@
         </div><!--/.container-fluid -->
       </nav>
 
-      <form class="form-signin">
-        <h3 class="form-signin-heading">Please sign into the email address you want to migrate using your email login and password:</h3>
+      <form class="form-signin form-group-lg">
+        <h3 class="form-signin-heading">Sign into the email account you want to migrate:</h3>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input name="inputEmail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input name="inputPassword" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <select name="inputPassword" class="form-control">
+
+        <select name="newEmailAddress" class="form-control">
+          <input class="btn btn-default btn-lg active" type="button">Create new email address</input>
+          <button type="button" class="btn btn-default btn-lg active">Use existing email address</button>
+
+
           <option>Create new email address</option>
           <option>Use existing email address</option>
         </select>
