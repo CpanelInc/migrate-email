@@ -15,8 +15,8 @@
         [% locale.maketext("Migrate your email messages from a public email service to your cPanel hosting account.") %]
       </p>
 
-      <div class="section"
-        <form action="retrieve-success.html.tt" class="form-signin form-group-lg">
+      <div class="section">
+        <form action="retrieve-success.html.tt" class="form-signin form-group-lg" method="post">
           <div class="form-group">
 
             <h3 class="form-signin-heading">Sign into the email account you want to migrate:</h3>
