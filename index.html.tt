@@ -1,0 +1,62 @@
+[% WRAPPER '_assets/master.html.tt'
+  app_key = 'migrate_email'
+  page_title = ''
+-%]
+
+[%
+  SET CPANEL.CPVAR.dprefix = "../"
+  email_address = execute("Email", "list_pops")
+-%]
+
+
+    <div class="container">
+
+      <!-- Static navbar -->
+  <h1>Migrate messages from a public email service to cPanel!</h1>
+
+      <form class="form-signin form-group-lg">
+        <div class="form-group">
+
+          <h3 class="form-signin-heading">Sign into the email account you want to migrate:</h3>
+          <label for="remoteEmail" class="sr-only">Email address</label>
+          <input name="remoteEmail" type="email" id="remoteEmail" class="form-control" placeholder="Email address" required autofocus>
+          <label for="remotePassword" class="sr-only">Password</label>
+          <input name="remotePassword" type="password" id="remotePassword" class="form-control" placeholder="Password" required>
+          <select name="mailService" class="form-control"> <option>Select a mail service</option> <option>Gmail</option><!-- <option>Hotmail</option><option>Outlook</option><option>Yahoo Mail</option>
+           -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <h3>Migrate this email account to:</h3>
+          <input class="btn btn-default" type="button" value="An existing email address">
+          <input class="btn btn-default" type="button" value="A new email address" id="newEmail" disabled="disabled">
+        </div>
+
+        <div class="form-group" id="emailSelect">
+          <p>Email address:</p>
+          <select name="localEmail" class="form-control">
+            [% FOREACH address IN email_address.data %]
+            <option>[%address.email %]</option>
+            [% END %] 
+          </select>
+          <label for="localPassword" class="sr-only">Password</label>
+          <input name="localPassword" type="password" id="localPassword" class="form-control" placeholder="Password" required>
+        </div>
+
+<!--        <div class="form-group">
+          <h3 class="form-signin-heading">New email account login:</h3>
+          <label for="newEmail" class="sr-only">Email address</label>
+          <input name="newEmail" type="email" id="newEmail" class="form-control" placeholder="Email address" required autofocus>
+          <label for="newEmailPassword" class="sr-only">Password</label>
+          <input name="newEmailPassword" type="password" id="newEmailPassword" class="form-control" placeholder="Password" required>
+        </div>
+-->
+
+        <div class="form-group">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Migrate now!</button>
+        </div>
+      </form>
+    </div>  <!-- /container -->
+
+[% END %]
