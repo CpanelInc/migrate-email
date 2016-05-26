@@ -11,32 +11,21 @@ our $VERSION = '0.1';
 use Cpanel::FindBin         ();
 use Cpanel::SafeRun::Simple ();
 
-my ( $remoteuser, $remotepass, $remoteserver, $localuser, $localpass, $localserver, $usessl, $mailservice );
-
-sub setupmigrateuser {
-
-    # Will need to check for defaults already set, plus set default or die if nothing given
-
-    my %OPTS = @_;
-    $remoteuser   = $OPTS{'remoteuser'};
-    $remotepass   = $OPTS{'remotepass'};
-    $remoteserver = $OPTS{'remoteserver'};
-    $localuser    = $OPTS{'localuser'};
-    $localpass    = $OPTS{'localpass'};
-    $localserver  = $OPTS{'localserver'};
-    $usessl       = $OPTS{'usessl'};
-    $mailservice  = $OPTS{'mailservice'};
-
-}
-
 sub domigrateuser {
+
+    my ( $args, $result ) = @_;
+
+    my ( $remoteuser, $remotepass, $localuser, $localpass ) = $args->get( 'remoteEmail', 'remotePassword', 'localEmail', 'localPassword' );
+
+    my $remoteserver = 'imap.gmail.com';
+    my $localserver  = 'localhost';
 
     my $imapsync = Cpanel::FindBin::findbin('imapsync');
 
     my $localport  = '993';
     my $remoteport = '993';
 
-    my @defaultoptions = ( '--automap', '--syncinternaldates', '--ssl1', '--ssl2', '--noauthmd5', '--exclude', 'All Mail|Spam|Trash', '--allowsizemismatch' );
+    my @defaultoptions = ( '--automap', '--syncinternaldates', '--ssl1', '--ssl2', '--noauthmd5', '--exclude', 'All Mail|Spam|Trash', '--allowsizemismatch', '--logdir', '/tmp', '--logfile', 'imapsync.txt' );
 
     my @mailoptions = ( '--host1', $remoteserver, '--user1', $remoteuser, '--password1', $remotepass, '--host2', $localserver, '--user2', $localuser, '--password2', $localpass, '--port1', $remoteport, '--port2', $localport );
 
@@ -46,14 +35,14 @@ sub domigrateuser {
 
 }
 
-sub services{
-    my( $args, $result) = @_;
+sub services {
+    my ( $args, $result ) = @_;
 
     my @results;
     $result->data(
         [
             {
-                'name' => 'Gmail',
+                'name'   => 'Gmail',
                 'server' => 'imap.gmail.com'
             }
         ]
